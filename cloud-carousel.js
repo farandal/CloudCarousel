@@ -266,8 +266,9 @@
 					w = img.width = item.orgWidth * scale;					
 					h = img.height = item.orgHeight * scale;
 					
-					img.style.filters.alpha.opacity= scale*100 //IE4 syntax
-					img.style.MozOpacity= scale   //NS6 syntax
+					
+					//img.style.filters.alpha.opacity= scale*100; //IE4 syntax
+					img.style.MozOpacity= scale;  //NS6 syntax
 					
 					img.style.left = x + px ;
 					img.style.top = y + px;
