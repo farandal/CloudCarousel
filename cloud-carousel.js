@@ -255,6 +255,7 @@
 				sinVal = funcSin(radians);
 				
 				scale = ((sinVal+1) * smallRange) + minScale;
+				opacity = ((sinVal+1) * smallRange) + minScale;
 				
 				x = this.xCentre + (( (funcCos(radians) * this.xRadius) - (item.orgWidth*0.5)) * scale);
 				y = this.yCentre + (( (sinVal * this.yRadius)  ) * scale);		
@@ -264,6 +265,10 @@
 					var	img = item.image;
 					w = img.width = item.orgWidth * scale;					
 					h = img.height = item.orgHeight * scale;
+					
+					img.style.filters.alpha.opacity= scale*100 //IE4 syntax
+					img.style.MozOpacity= scale   //NS6 syntax
+					
 					img.style.left = x + px ;
 					img.style.top = y + px;
 					img.style.zIndex = "" + (scale * 100)>>0;	// >>0 = Math.foor(). Firefox doesn't like fractional decimals in z-index.
